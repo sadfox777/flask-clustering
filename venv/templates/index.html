@@ -11,53 +11,55 @@
   <link id="style-switch" rel="stylesheet" type="text/css"
     href="https://cdn.jsdelivr.net/gh/danangwisnup/cdn-bootstrap-5/css/style.css">
 
+  <style>
+    body {
+      background-image: url(/static/img/bg-indo.png);
+    }
+  </style>
 </head>
 
 <body>
-  <main>
-    <div class="container-login">
-      <div class="row justify-content-center align-item-center">
-        <div class="col-lg-10 col-md-10 col-sm-12 py-md-5">
-          <div class="row shadow">
-            <div class="col-lg-6 col-md-6 col-sm-12 p-4 p-md-5 order-1 order-md-0">
-              <div class="text-center text-md-start">
-                <h3 class="mb-0">Clustering Data Covid 19 - K-mean</h3>
-                <small class="text-dark">Clustering dengan menggunakan 4 fitur yaitu
-                  <strong>total kasus, total kasus aktif, populasi dan total kematian.</strong></small>
+  <div class="row justify-content-center align-item-center">
+    <div class="col-lg-10 col-md-10 col-sm-12 py-md-5">
+      <div class="card card-body">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12 p-4 p-md-5 order-1 order-md-0">
+            <div class="text-center text-md-start">
+              <h3 class="mb-0">Clustering Data Covid 19 - K-mean</h3>
+              <small class="text-dark">Clustering dengan menggunakan 4 fitur yaitu
+                <strong>total kasus, total kasus aktif, populasi dan total kematian.</strong></small>
+            </div>
+            <form class="mb-3 mt-md-3" action="/result" method="POST">
+              <div class="mb-3">
+                <label class="form-label" style="font-size: small"> Total Cases </label>
+                <input type="number" class="form-control" name="total_cases" id="total_cases" placeholder="Total Cases">
               </div>
-              <form class="mb-3 mt-md-3" action="/result" method="POST">
-                <div class="mb-3">
-                  <label class="form-label" style="font-size: small"> Total Cases </label>
-                  <input type="number" class="form-control" name="total_cases" id="total_cases"
-                    placeholder="Total Cases">
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" style="font-size: small"> Total Active Cases </label>
-                  <input type="number" class="form-control" name="total_active_cases" id="total_active_cases"
-                    placeholder="Total Active Cases">
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" style="font-size: small"> Population </label>
-                  <input type="number" class="form-control" name="population" id="population" placeholder="Population">
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" style="font-size: small"> Total Deaths </label>
-                  <input type="number" class="form-control" name="total_deaths" id="total_deaths"
-                    placeholder="Total Deaths">
-                </div>
-                <div class="d-grid">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 p-0 p-md-0 order-1 order-md-0">
-              <img src="{{ url_for('static', filename='img/image-side.png') }}" alt="image-side" class="img-fluid">
-            </div>
+              <div class="mb-3">
+                <label class="form-label" style="font-size: small"> Total Active Cases </label>
+                <input type="number" class="form-control" name="total_active_cases" id="total_active_cases"
+                  placeholder="Total Active Cases">
+              </div>
+              <div class="mb-3">
+                <label class="form-label" style="font-size: small"> Population </label>
+                <input type="number" class="form-control" name="population" id="population" placeholder="Population">
+              </div>
+              <div class="mb-3">
+                <label class="form-label" style="font-size: small"> Total Deaths </label>
+                <input type="number" class="form-control" name="total_deaths" id="total_deaths"
+                  placeholder="Total Deaths">
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 p-0 p-md-0 order-1 order-md-0">
+            <img src="{{ url_for('static', filename='img/image-side.png') }}" alt="image-side">
           </div>
         </div>
       </div>
     </div>
-  </main>
+  </div>
 
   <!-- Bootstrap JS -->
   <script

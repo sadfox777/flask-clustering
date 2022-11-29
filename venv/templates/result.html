@@ -13,29 +13,34 @@
   <link id="style-switch" rel="stylesheet" type="text/css"
     href="https://cdn.jsdelivr.net/gh/danangwisnup/cdn-bootstrap-5/css/style.css">
 
+  <style>
+    body {
+      background-image: url(/static/img/bg-indo.png);
+    }
+  </style>
+
 </head>
 
 <body>
-  <main>
-    <div class="container-login">
-      <div class="row justify-content-center align-item-center">
-        <div class="col-lg-10 col-md-10 col-sm-12 py-md-5">
-          <div class="row shadow">
-            <div class="col-lg-12 col-md-12 col-sm-12 p-4 p-md-5 order-1 order-md-0">
-              <h3 class="text-2xl text-center">K-means Clustering COVID-19 Indonesia</h3>
-              <div class="text-center">
-                <h2 class="btn btn-primary">
-                  {{ clustering }}
-                </h2>
-                <div class="flex justify-center">
-                  <a href="{{ url_for('index') }}" class="btn btn-primary">Back</a>
-                </div>
+  <div class="row justify-content-center align-item-center">
+    <div class="col-lg-10 col-md-10 col-sm-12 py-md-5">
+      <div class="card card-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 p-4 p-md-5 order-1 order-md-0">
+            <h3 class="text-2xl text-center">K-means Clustering COVID-19 Indonesia</h3>
+            <div class="text-center">
+              <h2 class="btn btn-primary">
+                {{ clustering }}
+              </h2>
+              <div class="flex justify-center">
+                <a href="{{ url_for('index') }}" class="btn btn-primary">Back</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-  </main>
+    </div>
+  </div>
 
   <!-- Bootstrap JS -->
   <script
