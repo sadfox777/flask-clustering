@@ -1,86 +1,67 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Customer Segmentation</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clustering</title>
+
+  <!-- Theme CSS -->
+  <link id="style-switch" rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/gh/danangwisnup/cdn-bootstrap-5/css/style.css">
+
 </head>
 
-<body class="font-mono bg-gray-400">
-  <!-- Container -->
-  <div class="container mx-auto">
-    <div class="flex justify-center px-6 my-12">
-      <!-- Row -->
-      <div class="w-full xl:w-3/4 lg:w-11/12 flex">
-        <!-- Col -->
-        <img class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
-          src="{{ url_for('static', filename='img/consuments.jpg') }}"></img>
-        <!-- Col -->
-        <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-          <div class="px-8 mb-4 text-center">
-            <h3 class="pt-4 mb-2 text-2xl">Customers Segmentation</h3>
-            <p class="mb-4 text-sm text-gray-700">
-              Enter your data and we'll predict your customers segment!
-            </p>
+<body>
+  <main>
+    <div class="container-login">
+      <div class="row justify-content-center align-item-center">
+        <div class="col-lg-10 col-md-10 col-sm-12 py-md-5">
+          <div class="row shadow">
+            <div class="col-lg-6 col-md-6 col-sm-12 p-4 p-md-5 order-1 order-md-0">
+              <div class="text-center text-md-start">
+                <p class="mb-0">Clustering Data Covid 19</p>
+                <h4 style="font-weight: bolder;">K-Means</h4>
+              </div>
+              <form class="mb-3 mt-md-3" action="/result" method="POST">
+                <div class="mb-3">
+                  <label class="form-label" style="font-size: small"> Total Cases </label>
+                  <input type="number" class="form-control" name="total_cases" id="total_cases"
+                    placeholder="Total Cases">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" style="font-size: small"> Total Active Cases </label>
+                  <input type="number" class="form-control" name="total_active_cases" id="total_active_cases"
+                    placeholder="Total Active Cases">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" style="font-size: small"> Population </label>
+                  <input type="number" class="form-control" name="population" id="population" placeholder="Population">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" style="font-size: small"> Total Deaths </label>
+                  <input type="number" class="form-control" name="total_deaths" id="total_deaths"
+                    placeholder="Total Deaths">
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 p-0 p-md-0 order-1 order-md-0">
+              <img src="{{ url_for('static', filename='img/image-side.png') }}" alt="image-side" class="img-fluid">
+            </div>
           </div>
-          <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" action="/result" method="POST">
-            <div class="mb-4">
-              <label class="block mb-2 text-sm font-bold text-gray-700" for="name">
-                Name
-              </label>
-              <input required
-                class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                id="name" type="text" placeholder="Enter name" name="name" />
-            </div>
-            <div class="mb-4 text-gray-700">
-              <label class="block mb-2 text-sm font-bold text-gray-700" for="gender">
-                Gender
-              </label>
-              <div class="flex items-center gap-1">
-
-                <input required class="" id="genderM" type="radio" name="gender" value="Male" />
-                <label for="genderM">Male</label>
-              </div>
-
-              <div class="flex items-center gap-1">
-                <input required class="" id="genderF" type="radio" name="gender" value="Female" />
-                <label for="genderF">Female</label>
-              </div>
-            </div>
-            <div class="mb-4">
-              <label class="block mb-2 text-sm font-bold text-gray-700" for="age">
-                Age
-              </label>
-              <input required
-                class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                id="age" type="number" placeholder="Enter Age" name="age" min="0" max="100" />
-            </div>
-            <div class="mb-4">
-              <label class="block mb-2 text-sm font-bold text-gray-700" for="annual_income">
-                Height
-              </label>
-              <input required
-                class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                id="height" type="number" placeholder="Enter Height" name="height" min="0" max="300" />
-            </div>
-            <div class="mb-4">
-              <label class="block mb-2 text-sm font-bold text-gray-700" for="spending_score">
-                Weight
-              </label>
-              <input required
-                class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                id="weight" type="number" placeholder="Enter Weight" name="weight" min="0" max="300" />
-            </div>
-            <div class="mb-2 text-center">
-              <input required
-                class="w-full px-4 py-2 font-bold text-white bg-indigo-500 cursor-pointer rounded-full hover:bg-indigo-700 focus:outline-none focus:shadow-outline"
-                type="submit" value="Submit">
-              </input>
-            </div>
-          </form>
         </div>
       </div>
     </div>
-  </div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/gh/danangwisnup/cdn-bootstrap-5/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
