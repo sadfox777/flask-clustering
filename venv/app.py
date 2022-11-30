@@ -1,6 +1,6 @@
 import os
-import numpy as np
 import flask
+import numpy as np
 import pickle
 from flask import Flask, redirect, url_for, request, render_template
 
