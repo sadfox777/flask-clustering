@@ -1,12 +1,13 @@
 import os
-import numpy as np
 import flask
+import numpy as np
 import pickle
 from flask import Flask, redirect, url_for, request, render_template
 
 # Membuat instance dari kelas
 app = Flask(__name__, template_folder='templates')
 
+#app.route memetakan URL ke fungsi tertentu yang akan menangani logika untuk URL tersebut
 @app.route('/')
 @app.route('/index')
 def index():
@@ -33,7 +34,7 @@ def result():
         to_predict_list = list(map(float, [total_cases, total_active_cases, population, total_deaths]))
         result = ValuePredictor(to_predict_list)
 
-        # Hasil clustering
+        # Hasil clustering inputan
         if float(result) == 0:
             clustering = 'Cluster 0: Termasuk dalam populasi jumlahnya palang yang rendah, total kasus paling rendah, total kasus aktif paling rendah, dan total kematian paling rendah.'
         elif float(result) == 1:
@@ -44,6 +45,5 @@ def result():
 
         return render_template("result.html", clustering=clustering)
 
-
 if __name__ == "__main__":
-    app.run(debug=False)  # use debug = False for jupyter notebook
+    app.run(debug=False)  # gunakan debug = False untuk jupyter notebook
